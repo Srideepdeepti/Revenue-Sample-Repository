@@ -11,9 +11,9 @@ public class Hooks {
 
 	    @After
 	    public void tearDown() {
-	        if (stepDefinition.driver != null) {
+	        if (stepDefinitionUI.driver != null) {
 	            System.out.println("Closing browser after scenario...");
-	            stepDefinition.driver.quit(); // or driver.close()
+	            stepDefinitionUI.driver.quit(); // or driver.close()
 	        }
 	    }
 	}

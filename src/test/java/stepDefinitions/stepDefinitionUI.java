@@ -1,11 +1,13 @@
 package stepDefinitions;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.Map;
 
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
+
 
 
 import io.cucumber.java.en.*;
@@ -16,12 +18,13 @@ import utils.CurrencyFormatter;
 import utils.calculateDuty;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import static org.junit.Assert.assertEquals;
 
 
-public class stepDefinition {
+public class stepDefinitionUI {
 	
 
-	private static final Logger logger =  LogManager.getLogger(stepDefinition.class);
+	private static final Logger logger =  LogManager.getLogger(stepDefinitionUI.class);
 
     public static WebDriver driver;
     
@@ -49,7 +52,7 @@ public void i_click_the_check_online_button() {
 public void the_check_online_page_should_be_displayed() {
 
   logger.info("Asserting123 that Page is opened...");
-  Assert.assertTrue(revenueCalculatorPage.isPageOpened());
+   assertTrue(revenueCalculatorPage.isPageOpened());
   logger.info("Pass123: Page gets opened...");
   logger.info("Clicking(update2) on Yes button...");
   revenueCalculatorPage.clickYes();
@@ -76,7 +79,7 @@ public void all_the_details_like_are_correct(String registration_status, String 
     
 	modalPage = new ModalPage(driver);
     logger.info("Validating Modal page dialog gets opened...");
-    Assert.assertTrue(modalPage.isModalDisplayed());
+    assertTrue(modalPage.isModalDisplayed());
     
     logger.info("Validation Sucessfull...");
     
@@ -85,7 +88,7 @@ public void all_the_details_like_are_correct(String registration_status, String 
     logger.info(map.get("Is this registration for a passenger vehicle?"));
    
     logger.info("Validating Registration status, Vehicle Value and Duty details on the dialog...");
-    Assert.assertEquals(map.get("Is this registration for a passenger vehicle?"),registration_status ); 
+    assertEquals(map.get("Is this registration for a passenger vehicle?"),registration_status ); 
     logger.info(map.get("Purchase price or value"));
     String enteredPrice = revenueCalculatorPage.getPurchasePrice();
    
@@ -97,7 +100,7 @@ public void all_the_details_like_are_correct(String registration_status, String 
    String actual_VehicleValue = CurrencyFormatter.convertToAud(num);
    String expected_VehicleValue =(map.get("Purchase price or value"));
    logger.info("Validating Vehicle Value on the Modal Dialog..");
-   Assert.assertEquals(actual_VehicleValue,expected_VehicleValue );
+   assertEquals(actual_VehicleValue,expected_VehicleValue );
    logger.info("Validation Pass...");
    String actual_Duty= map.get("Duty payable");
    
@@ -107,8 +110,8 @@ public void all_the_details_like_are_correct(String registration_status, String 
    logger.info("Actual_Duty :"+actual_Duty);
    System.out.println("Expected_Duty :"+expected_Duty);
    logger.info("Validating Duty Value on the Modal Dialog..");
-   Assert.assertEquals( actual_Duty,expected_Duty);
-   Assert.assertEquals( actual_Duty,expectedDuty);
+   assertEquals( actual_Duty,expected_Duty);
+   assertEquals( actual_Duty,expectedDuty);
    logger.info("Validation Pass...");
    
    modalPage.closeModal();

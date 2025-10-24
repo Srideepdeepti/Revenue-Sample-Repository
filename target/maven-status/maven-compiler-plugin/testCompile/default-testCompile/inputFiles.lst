@@ -1,6 +1,7 @@
-C:\Users\Deepti\eclipse-workspace\revenue-test-app\src\test\java\cucumber\Options\testRunner.java
+C:\Users\Deepti\eclipse-workspace\revenue-test-app\src\test\java\cucumberOptions\TestRunner.java
+C:\Users\Deepti\eclipse-workspace\revenue-test-app\src\test\java\cucumberOptions\testRunnerUI.java
 C:\Users\Deepti\eclipse-workspace\revenue-test-app\src\test\java\stepDefinitions\Hooks.java
-C:\Users\Deepti\eclipse-workspace\revenue-test-app\src\test\java\stepDefinitions\stepDefinition.java
-C:\Users\Deepti\eclipse-workspace\revenue-test-app\src\test\java\test.java
+C:\Users\Deepti\eclipse-workspace\revenue-test-app\src\test\java\stepDefinitions\stepDefinitionAPI.java
+C:\Users\Deepti\eclipse-workspace\revenue-test-app\src\test\java\stepDefinitions\stepDefinitionUI.java
 C:\Users\Deepti\eclipse-workspace\revenue-test-app\src\test\java\utils\calculateDuty.java
 C:\Users\Deepti\eclipse-workspace\revenue-test-app\src\test\java\utils\CurrencyFormatter.java
