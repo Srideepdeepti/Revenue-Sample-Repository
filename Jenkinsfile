@@ -7,7 +7,7 @@ pipeline {
     }
 
     triggers {
-        pollSCM('* * * * *') // Run on commit (or use webhook)
+        pollSCM('H/5 * * * *'') // Run on commit (or use webhook)
     }
 
     stages {
