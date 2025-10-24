@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        jdk 'JDK21'          // Jenkins JDK
-        maven 'Maven3'       // Maven installed in Jenkins
+        maven 'MAVEN_HOME'
+        jdk 'JAVA_HOME''       // Maven installed in Jenkins
     }
 
     triggers {
