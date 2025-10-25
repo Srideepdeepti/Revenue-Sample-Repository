@@ -20,6 +20,7 @@ pipeline {
             }
         }
         stage('Publish Reports') {
+			steps{
          publishHTML(target: [
         reportName : 'Cucumber HTML Report',
         reportDir  : 'target/cucumber-html-reports',
@@ -28,6 +29,7 @@ pipeline {
         alwaysLinkToLastBuild: true,
         allowMissing: false
     ])
+    }
 }
 
     }
