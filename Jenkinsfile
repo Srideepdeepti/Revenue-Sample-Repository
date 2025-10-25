@@ -11,7 +11,7 @@ pipeline {
       
         stage('Checkout') {
             steps {
-                git 'https://github.com/Srideepdeepti/Revenue-Sample-Repository.git'
+                git branch: 'main', url: 'https://github.com/Srideepdeepti/Revenue-Sample-Repository.git'
             }
         }
         stage('Run Tests') {
