@@ -10,19 +10,19 @@ pipeline {
   } 
 
     stages {
-		
-		
-      
+	
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/Srideepdeepti/Revenue-Sample-Repository.git'
             }
         }
-        stage('Run Tests...') {
+        
+        stage('Run Test') {
             steps {
                 sh 'mvn clean verify -Dtest=cucumberOptions.TestRunner'
             }
         }
+        
         stage('Publish Reports') {
 			steps{
          publishHTML(target: [
@@ -38,9 +38,9 @@ pipeline {
 
     }
     
-    post {
+     post {
         always {
-            echo 'Publishing reports, even if build failed...'
+            echo 'Publishing reports, even if build gets failed...'
 
             // ✅ Publish HTML Cucumber Report (always)
             publishHTML(target: [

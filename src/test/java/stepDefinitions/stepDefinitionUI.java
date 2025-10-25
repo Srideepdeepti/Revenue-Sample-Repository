@@ -51,7 +51,7 @@ public void i_click_the_check_online_button() {
 @Then("The Check Online page should be displayed")
 public void the_check_online_page_should_be_displayed() {
 
-  logger.info("Asserting1234 that Page is opened...");
+  logger.info("Asserting that Page is opened...");
    assertTrue(revenueCalculatorPage.isPageOpened());
   logger.info("Pass123: Page gets opened...");
   logger.info("Clicking(update2) on Yes button...");

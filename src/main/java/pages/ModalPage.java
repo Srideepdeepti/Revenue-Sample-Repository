@@ -56,6 +56,7 @@ public class ModalPage {
 	        return modalTitle.getText();
 	    }
 	    
+	   
 	    public String getHeading() {
 	        return heading.getText();
 	    }
@@ -69,8 +70,7 @@ public class ModalPage {
 	    }
 	    
 	    
-	    
-	    private Map<String, String> getTableData(WebElement table) {
+	   private Map<String, String> getTableData(WebElement table) {
 	        Map<String, String> data = new LinkedHashMap<>();
 	        List<WebElement> rows = table.findElements(By.xpath("//tr"));
 	        for (WebElement row : rows) {
