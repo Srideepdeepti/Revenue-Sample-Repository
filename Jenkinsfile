@@ -4,6 +4,10 @@ pipeline {
     jdk 'Java21'
     maven 'Maven3'
         } 
+        
+        triggers {
+    githubPush()
+  } 
 
     stages {
 		
