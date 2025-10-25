@@ -8,12 +8,7 @@ pipeline {
     stages {
 		
 		
-       stage('Verify Tools') {
-            steps {
-                sh 'java -version'
-                sh 'mvn -v'
-            } 
-           } 
+      
         stage('Checkout') {
             steps {
                 git 'https://github.com/Srideepdeepti/Revenue-Sample-Repository.git'
