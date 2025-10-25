@@ -3,7 +3,7 @@ pipeline {
    tools {
     jdk 'Java21'
     maven 'Maven3'
-}
+        } 
 
     stages {
 		
@@ -28,9 +28,25 @@ pipeline {
         keepAll    : true,
         alwaysLinkToLastBuild: true,
         allowMissing: false
-    ])
-    }
-}
+          ])
+        }
+      }
 
     }
+    
+    post {
+        always {
+            echo 'Publishing reports, even if build failed...'
+
+            // ✅ Publish HTML Cucumber Report (always)
+            publishHTML(target: [
+                reportName: 'Cucumber HTML Report',
+                reportDir: 'target/cucumber-html-reports',
+                reportFiles: 'overview-features.html',
+                keepAll: true,
+                alwaysLinkToLastBuild: true,
+                allowMissing: true  // prevents failure if report folder missing
+            ]) 
+            }
+           } 
 }
