@@ -4,17 +4,9 @@ import static io.restassured.RestAssured.*;
 import io.restassured.*;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertEquals;
-
-
 import java.util.List;
-
-
-
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
-
-
-
 import io.cucumber.java.en.*;
 
 public class stepDefinitionAPI {

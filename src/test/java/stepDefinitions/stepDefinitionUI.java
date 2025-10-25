@@ -1,16 +1,10 @@
 package stepDefinitions;
-
 import static org.junit.Assert.assertTrue;
-
 import java.util.Map;
-
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-
-
 import io.cucumber.java.en.*;
+import pages.PageManager;
 import pages.HomePage;
 import pages.ModalPage;
 import pages.RevenueCalculator;
@@ -28,9 +22,10 @@ public class stepDefinitionUI {
 
     public static WebDriver driver;
     
-    HomePage homePage;
-    RevenueCalculator  revenueCalculatorPage ;
-	ModalPage modalPage;
+    private HomePage homePage;
+    private RevenueCalculator  revenueCalculatorPage ;
+	private ModalPage modalPage;
+	private PageManager pageManager;
 	
 
 @Given("I open the Service NSW check motor vehicle stamp duty page")
@@ -39,20 +34,26 @@ public void i_open_the_service_nsw_check_motor_vehicle_stamp_duty_page() {
 	driver = new ChromeDriver();
     driver.manage().window().maximize();
     driver.get("https://www.service.nsw.gov.au/transaction/check-motor-vehicle-stamp-duty");
-    homePage = new HomePage(driver);	
-    revenueCalculatorPage = new RevenueCalculator(driver);
+    // Initialize Page Manager
+    pageManager = new PageManager(driver);
+    
+ // Access pages via manager
+    homePage = pageManager.getHomePage();
+    revenueCalculatorPage = pageManager.getRevenueCalculatorPage();
+
 }
 @When("I click the Check Online button")
 public void i_click_the_check_online_button() {
 
-   homePage.clickCheckOnline();      
+   homePage.clickCheckOnline();  
+   logger.info("Clicked on Check Online button.");
 }
 
 @Then("The Check Online page should be displayed")
 public void the_check_online_page_should_be_displayed() {
 
   logger.info("Asserting that Page is opened...");
-   assertTrue(revenueCalculatorPage.isPageOpened());
+  assertTrue(revenueCalculatorPage.isPageOpened());
   logger.info("Pass123: Page gets opened...");
   logger.info("Clicking(update2) on Yes button...");
   revenueCalculatorPage.clickYes();
@@ -77,7 +78,8 @@ public void click_on_calculate_button() {
 @Then("All the details like  {string} {string} are correct")
 public void all_the_details_like_are_correct(String registration_status, String expectedDuty) {
     
-	modalPage = new ModalPage(driver);
+	modalPage = pageManager.getModalPage();
+	
     logger.info("Validating Modal page dialog gets opened...");
     assertTrue(modalPage.isModalDisplayed());
     
