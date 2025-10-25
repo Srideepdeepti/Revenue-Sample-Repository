@@ -47,6 +47,13 @@ pipeline {
                 alwaysLinkToLastBuild: true,
                 allowMissing: true  // prevents failure if report folder missing
             ]) 
+            
+            
+            // ✅ Archive all Cucumber reports (HTML + JSON)
+            archiveArtifacts artifacts: 'target/**/*.html, target/**/*.json', 
+                              fingerprint: true,
+                              onlyIfSuccessful: false
+
             }
            } 
 }

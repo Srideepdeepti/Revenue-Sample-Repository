@@ -10,8 +10,8 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(features="src/test/java/features", glue={"stepDefinitions"},
 plugin={"pretty",
 		
-"json:target/jsonReports/cucumber-test-report.json",
-"html:target/cucumber-html-reports"},
+"json:target/jsonReports/cucumber-test-report.json"
+},
 monochrome=true)
 public class TestRunner {
 
