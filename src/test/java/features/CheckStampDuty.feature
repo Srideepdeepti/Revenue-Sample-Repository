@@ -13,7 +13,7 @@ Feature: Check Motor Vehicle Stamp Duty with differents sets of data
       Examples:
       |  purchasePrice       |  registration | expected_Duty|
       | 44999     | Yes    |$1,350.00|
-      | 45000  | Yes |$1,350.00|
+      | 45000  | Yes |$1,359.00|
       | 45500   | Yes |$1,375.00|
     
    

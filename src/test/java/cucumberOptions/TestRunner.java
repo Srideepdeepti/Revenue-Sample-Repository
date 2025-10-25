@@ -7,7 +7,12 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features="src/test/java/features", glue={"stepDefinitions"},plugin="json:target/jsonReports/cucumber-test-report.json")
+@CucumberOptions(features="src/test/java/features", glue={"stepDefinitions"},
+plugin={"pretty",
+		
+"json:target/jsonReports/cucumber-test-report.json",
+"html:target/cucumber-html-reports"},
+monochrome=true)
 public class TestRunner {
 
 }
