@@ -23,7 +23,7 @@ pipeline {
 			steps{
          publishHTML(target: [
         reportName : 'Cucumber HTML Report',
-        reportDir  : 'target/cucumber-html-reports',
+        reportDir  : 'target/cucumber-html-reports/cucumber-html-reports',
         reportFiles: 'overview-features.html',
         keepAll    : true,
         alwaysLinkToLastBuild: true,
@@ -41,7 +41,7 @@ pipeline {
             // ✅ Publish HTML Cucumber Report (always)
             publishHTML(target: [
                 reportName: 'Cucumber HTML Report',
-                reportDir: 'target/cucumber-html-reports',
+                reportDir: 'target/cucumber-html-reports/cucumber-html-reports',
                 reportFiles: 'overview-features.html',
                 keepAll: true,
                 alwaysLinkToLastBuild: true,
