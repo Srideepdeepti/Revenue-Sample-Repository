@@ -18,7 +18,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Srideepdeepti/Revenue-Sample-Repository.git'
             }
         }
-        stage('Run Tests') {
+        stage('Run Tests...') {
             steps {
                 sh 'mvn clean verify -Dtest=cucumberOptions.TestRunner'
             }
