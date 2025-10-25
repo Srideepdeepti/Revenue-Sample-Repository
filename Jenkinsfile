@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Publish Reports') {
             steps {
-                cucumber buildStatus: 'UNSTABLE', jsonReportDirectory: 'target/cucumber-html-reports'
+                cucumber buildStatus: 'UNSTABLE', jsonReportDirectory: 'target/jsonReports'
             }
         }
     }
