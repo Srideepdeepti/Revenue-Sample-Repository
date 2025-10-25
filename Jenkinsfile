@@ -20,9 +20,15 @@ pipeline {
             }
         }
         stage('Publish Reports') {
-            steps {
-                cucumber buildStatus: 'UNSTABLE', jsonReportDirectory: 'target/jsonReports'
-            }
-        }
+         publishHTML(target: [
+        reportName : 'Cucumber HTML Report',
+        reportDir  : 'target/cucumber-html-reports',
+        reportFiles: 'overview-features.html',
+        keepAll    : true,
+        alwaysLinkToLastBuild: true,
+        allowMissing: false
+    ])
+}
+
     }
 }
