@@ -17,15 +17,14 @@ import io.cucumber.java.en.*;
 
 public class stepDefinitionAPI {
 	
-	
-
  String BASE_URL = "https://openlibrary.org";
  String AUTHOR_ID = "OL1A";
  Response response;
  JsonPath js;
-	@Given("the baseURL")
+	
+ @Given("the baseURL")
 	public void the_base_url() {
-	    // Write code here that turns the phrase above into concrete actions
+	    //Setting up BASE_URI
 	
         RestAssured.baseURI = BASE_URL;
 
@@ -64,7 +63,7 @@ public class stepDefinitionAPI {
         System.out.println("Alternate Names: " + alternateNames);
 
         // Assert that the list contains "Yugashrashta Sachi Routray"
-        assertTrue("Expected name not found in alternate_names!", alternateNames.contains(expected_alternate_name));
+        assertTrue("Assertion Fail : Expected name not found in alternate_names!", alternateNames.contains(expected_alternate_name));
        
      }
 
