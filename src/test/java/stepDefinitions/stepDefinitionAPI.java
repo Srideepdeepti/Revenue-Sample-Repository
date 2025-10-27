@@ -35,9 +35,9 @@ public class stepDefinitionAPI {
 	    
 	 response = given()
 		          .log().all()
-		        .when()
+		          .when()
 		          .get("/authors/" + AUTHOR_ID + ".json")
-		        .then()
+		          .then()
 		          .log().all()
 		          .assertThat()
 		          .statusCode(200)
