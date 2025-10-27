@@ -56,7 +56,7 @@ public void the_check_online_page_should_be_displayed() {
   logger.info("Asserting that Page is opened...");
   assertTrue(revenueCalculatorPage.isPageOpened());
   logger.info("Pass123: Page gets opened...");
-  logger.info("Clicking(update2byDeepti) on Yes button...");
+  logger.info("Clicking(update2byDeeptiSrivastava) on Yes button...");
   revenueCalculatorPage.clickYes();
   
 }
