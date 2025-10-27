@@ -4,9 +4,15 @@ import static io.restassured.RestAssured.*;
 import io.restassured.*;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.List;
+
+import org.junit.Assert;
+
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import io.cucumber.java.en.*;
 
 public class stepDefinitionAPI {
@@ -15,7 +21,7 @@ public class stepDefinitionAPI {
 
  String BASE_URL = "https://openlibrary.org";
  String AUTHOR_ID = "OL1A";
- String res;
+ Response response;
  JsonPath js;
 	@Given("the baseURL")
 	public void the_base_url() {
@@ -28,7 +34,7 @@ public class stepDefinitionAPI {
 	@When("I hit the endpoint for getAuthors")
 	public void i_hit_the_endpoint_for_get_authors() {
 	    
-		String res = given()
+	 response = given()
 		          .log().all()
 		        .when()
 		          .get("/authors/" + AUTHOR_ID + ".json")
@@ -36,41 +42,31 @@ public class stepDefinitionAPI {
 		          .log().all()
 		          .assertThat()
 		          .statusCode(200)
-		          .contentType(containsString("application/json"))
-		          .body("key", equalTo("/authors/" + AUTHOR_ID))
-		          .body("name", not(emptyString()))
-		          .body("personal_name", equalTo("Sachi Rautroy"))
-		          .body("alternate_names", hasItem("Yugashrashta Sachi Routray"))
-		          .extract().response().asString();
-		 js = new JsonPath(res);
+		          .extract().response(); 
+		
+		
 	}
 	
 	@Then("I verify the {string} in response is {string}")
 	public void i_verify_the_in_response_is(String name, String expected_name) {
 		
-		assertEquals(js.getString(name),expected_name);
+		assertEquals(response.jsonPath().get(name),expected_name);
 	    
 	}
 	
 	@Then("I verify the {string} in response contains {string}")
 	public void i_verify_the_in_response_contains(String alternate_names, String expected_alternate_name) {
 		
-		given()
-        .log().all()
-      .when()
-        .get("/authors/" + AUTHOR_ID + ".json")
-      .then()
-        .log().all()
-        .body(alternate_names, hasItem(expected_alternate_name))
-        .extract().response();
-	}
 
+		java.util.List<String> alternateNames = response.jsonPath().getList("alternate_names");
 
+        //Print the list
+        System.out.println("Alternate Names: " + alternateNames);
 
+        // Assert that the list contains "Yugashrashta Sachi Routray"
+        assertTrue("Expected name not found in alternate_names!", alternateNames.contains(expected_alternate_name));
+       
+     }
 
-	
-	
-	
-	
 
 }

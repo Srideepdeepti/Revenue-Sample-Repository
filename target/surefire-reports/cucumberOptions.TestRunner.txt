@@ -1,11 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: cucumberOptions.TestRunner
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 40.48 s <<< FAILURE! -- in cucumberOptions.TestRunner
-Check Motor Vehicle Stamp Duty with differents sets of data.Open Service NSW and check online stamp duty page is visble and all details in popup are correct #2 -- Time elapsed: 10.09 s <<< FAILURE!
-org.junit.ComparisonFailure: expected:<$1,35[0].00> but was:<$1,35[9].00>
-	at org.junit.Assert.assertEquals(Assert.java:117)
-	at org.junit.Assert.assertEquals(Assert.java:146)
-	at stepDefinitions.stepDefinitionUI.all_the_details_like_are_correct(stepDefinitionUI.java:116)
-	at ✽.All the details like  "Yes" "$1,359.00" are correct(file:///C:/Users/Deepti/eclipse-workspace/revenue-test-app/src/test/java/features/CheckStampDuty.feature:11)
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 7.069 s <<< FAILURE! -- in cucumberOptions.TestRunner
+Author API should respond correctly.Validate Author API has given personal name and alternate names in response -- Time elapsed: 5.778 s <<< FAILURE!
+java.lang.AssertionError: Expected name not found in alternate_names!
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at stepDefinitions.stepDefinitionAPI.i_verify_the_in_response_contains(stepDefinitionAPI.java:67)
+	at ✽.I verify the "alternate_names" in response contains "Yugsashrashta Sachi Routray"(file:///C:/Users/Deepti/eclipse-workspace/revenue-test-app/src/test/java/features/CheckAPIResponse.feature:7)
 
