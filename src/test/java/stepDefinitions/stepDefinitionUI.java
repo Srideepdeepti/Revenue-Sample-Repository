@@ -34,8 +34,9 @@ public void i_open_the_service_nsw_check_motor_vehicle_stamp_duty_page() {
 	driver = new ChromeDriver();
     driver.manage().window().maximize();
     driver.get("https://www.service.nsw.gov.au/transaction/check-motor-vehicle-stamp-duty");
+    
     // Initialize Page Manager
-    pageManager = new PageManager(driver);
+     pageManager = new PageManager(driver);
     
  // Access pages via manager
     homePage = pageManager.getHomePage();
@@ -55,7 +56,7 @@ public void the_check_online_page_should_be_displayed() {
   logger.info("Asserting that Page is opened...");
   assertTrue(revenueCalculatorPage.isPageOpened());
   logger.info("Pass123: Page gets opened...");
-  logger.info("Clicking(update2) on Yes button...");
+  logger.info("Clicking(update2byDeepti) on Yes button...");
   revenueCalculatorPage.clickYes();
   
 }

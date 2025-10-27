@@ -63,7 +63,7 @@ public class stepDefinitionAPI {
         System.out.println("Alternate Names: " + alternateNames);
 
         // Assert that the list contains "Yugashrashta Sachi Routray"
-        assertTrue("Assertion Fail : Expected name not found in alternate_names!", alternateNames.contains(expected_alternate_name));
+        assertTrue("Assertion Fail : Expected name not found in alternate_names!!!", alternateNames.contains(expected_alternate_name));
        
      }
 
