@@ -84,6 +84,7 @@ public void all_the_details_like_are_correct(String registration_status, String 
 	modalPage = pageManager.getModalPage();
 	
     logger.info("Validating Modal page dialog gets opened...");
+    logger.info("Validating Modal page dialog gets opened...");
     assertTrue(modalPage.isModalDisplayed());
     
     logger.info("Validation Sucessfull...");
